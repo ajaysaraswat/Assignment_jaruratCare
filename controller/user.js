@@ -5,7 +5,7 @@ const handleRegister = async (req, res) => {
 		const body = req.body;
 		if (!body) return res.status(400).send({ message: "invalid body" });
 		const user = await User.create({
-			fullname: body.fullname,
+			name: body.name,
 			email: body.email,
 			password: body.password,
             role : body.role,
@@ -36,7 +36,7 @@ const handlelogin = async (req, res) => {
 };
 
 const handlelogout = (req, res) => {
-	res.clearCookie("uid").redirect("/user/signin");
+	res.clearCookie("uid").send("Logout successfuly");
 };
 
 module.exports = {
