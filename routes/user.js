@@ -3,7 +3,7 @@ const {
 	handleRegister,
     handlelogout,
 	handlelogin,
-} = require("../controllers/user");
+} = require("../controller/user");
 
 const userRouter = express.Router();
 
