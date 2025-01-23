@@ -1,6 +1,6 @@
 const User = require("../models/user");
 
-const handlepostuser = async (req, res) => {
+const handleRegister = async (req, res) => {
 	try {
 		const body = req.body;
 		if (!body) return res.status(400).send({ message: "invalid body" });
@@ -20,7 +20,7 @@ const handlepostuser = async (req, res) => {
 	}
 };
 
-const handlepostsignin = async (req, res) => {
+const handlelogin = async (req, res) => {
 	const { email, password } = req.body;
 
 	try {
@@ -40,8 +40,8 @@ const handlelogout = (req, res) => {
 };
 
 module.exports = {
-	handlepostuser,
-	handlepostsignin,
+	handleRegister,
+	handlelogin,
 	handlelogout,
 	
 };

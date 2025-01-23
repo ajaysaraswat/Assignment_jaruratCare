@@ -1,14 +1,14 @@
 const express = require("express");
 const {
-	handlepostuser,
+	handleRegister,
     handlelogout,
-	handlepostsignin,
+	handlelogin,
 } = require("../controllers/user");
 
 const userRouter = express.Router();
 
-userRouter.post("/user", handlepostuser);
-userRouter.post("/user/signin", handlepostsignin);
-userRouter.post("/user/logout", handlelogout);
+userRouter.post("/", handleRegister);
+userRouter.post("/login", handlelogin);
+userRouter.post("/logout", handlelogout);
 
 module.exports = userRouter;
