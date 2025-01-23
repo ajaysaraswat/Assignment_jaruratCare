@@ -1,0 +1,24 @@
+{
+  "name": "assignment_jaruratcare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaysaraswat/Assignment_jaruratCare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajaysaraswat/Assignment_jaruratCare/issues"
+  },
+  "homepage": "https://github.com/ajaysaraswat/Assignment_jaruratCare#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9"
+  }
+}
