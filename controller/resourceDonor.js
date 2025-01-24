@@ -17,10 +17,60 @@ const handleCreateResource = async (req, res) => {
     return res.status(400).json({ error: err.message });
   }
 };
-const handleGetAllResources = (req, res) => {};
-const handlegetResourceById = (req, res) => {};
-const handleUpdateResource = (req, res) => {};
-const handleDeleteResource = (req, res) => {};
+
+const handleGetAllResources = async (req, res) => {
+  try {
+    const resources = await Donor.find({});
+    return res.status(200).send({ resources: resources });
+  } catch (err) {
+    return res.status(400).send({ error: err.message });
+  }
+};
+
+const handlegetResourceById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const resource = await Donor.findById({ _id: id });
+    if (!resource) return res.json({ message: "resource not found !" });
+    return res.status(200).send({ resource: resource });
+  } catch (err) {
+    return res.status(400).json({ error: err.message });
+  }
+};
+
+const handleUpdateResource = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updateData = req.body;
+    const result = await Donor.findByIdAndUpdate(
+      { _id: id },
+      { $set: updateData }
+    );
+    if (result.markModified === 0) {
+      return res.json({ status: "Event doesn't found" });
+    }
+    res.status(200).json({
+      status: "Resource Update sucessfully",
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "Error",
+      message: `failure due to some issues ${err.message}`,
+    });
+  }
+};
+const handleDeleteResource = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Donor.findByIdAndDelete({ _id: id });
+    return res.status(200).json({ status: "Resource Deleted succesfully" });
+  } catch (err) {
+    res.status(404).json({
+      status: "Error",
+      message: `failure due to some issues ${err.message}`,
+    });
+  }
+};
 
 module.exports = {
   handleCreateResource,
