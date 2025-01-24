@@ -9,6 +9,7 @@ const handleCreateResource = async (req, res) => {
       email: body.email,
       donationAmount: body.donationAmount,
       message: body.message,
+      createdBy: req.User._id,
     });
     return res
       .status(201)

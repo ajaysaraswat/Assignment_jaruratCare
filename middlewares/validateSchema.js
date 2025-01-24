@@ -27,7 +27,7 @@ const userValidationSchema = Joi.object({
         "Password must include uppercase, lowercase, number, and special character",
     }),
 
-  role: Joi.string().valid("USER", "ADMIN").default("USER"),
+  role: Joi.string().valid("User", "Admin").default("User"),
 });
 
 // Middleware for validation

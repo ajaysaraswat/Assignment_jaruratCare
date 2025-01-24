@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const secret = "$123RAHAT";
+const secret = "$23RAHAT";
 
 const setuser = (user) => {
   const payload = {
