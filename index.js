@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { connecttoMongoDB } = require("./connection");
 const userRouter = require("./routes/user");
@@ -5,9 +6,11 @@ const resourceRouter = require("./routes/resourceDonor");
 const { restrictedtouserloginonly } = require("./middlewares/auth");
 const cookieParser = require("cookie-parser");
 const app = express();
-const PORT = 8000;
 
-connecttoMongoDB("mongodb://127.0.0.1:27017/RahatDatabase");
+const PORT = process.env.PORT;
+const url = process.env.MONGO_URL;
+
+connecttoMongoDB(`${url}`);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
