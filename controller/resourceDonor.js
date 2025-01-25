@@ -15,6 +15,7 @@ const handleCreateResource = async (req, res) => {
       status: "Created Successfully",
       resourceId: donor._id,
       createdBy: req.User._id,
+      donor,
     });
   } catch (err) {
     return res.status(400).json({ error: err.message });
