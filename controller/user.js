@@ -13,7 +13,7 @@ const handleRegister = async (req, res) => {
 
     return res
       .status(201)
-      .json({ status: "Created Successfully", message: user._id });
+      .json({ status: "Created Successfully", userId: user._id, user });
     //return res.redirect("/user/signin");
   } catch (err) {
     return res.status(400).json({ error: err.message });
@@ -28,7 +28,10 @@ const handlelogin = async (req, res) => {
 
     res.cookie("uid", uid);
     //  res.render("home");
-    return res.json({ message: "login succesfully", "jwt token ": uid });
+    return res.json({
+      message: "login succesfully",
+      "jwt token authentication ": "Done",
+    });
   } catch (err) {
     //return res.redirect("/");
     return res.json({ message: err.message });

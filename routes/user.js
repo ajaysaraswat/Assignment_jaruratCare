@@ -8,7 +8,7 @@ const { validateUser } = require("../middlewares/validateSchema");
 
 const userRouter = express.Router();
 
-userRouter.post("/", validateUser, handleRegister);
+userRouter.post("/register", validateUser, handleRegister);
 userRouter.post("/login", handlelogin);
 userRouter.post("/logout", handlelogout);
 

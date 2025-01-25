@@ -11,9 +11,11 @@ const handleCreateResource = async (req, res) => {
       message: body.message,
       createdBy: req.User._id,
     });
-    return res
-      .status(201)
-      .json({ status: "Created Successfully", message: user._id });
+    return res.status(201).json({
+      status: "Created Successfully",
+      resourceId: donor._id,
+      createdBy: req.User._id,
+    });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
@@ -52,6 +54,7 @@ const handleUpdateResource = async (req, res) => {
     }
     res.status(200).json({
       status: "Resource Update sucessfully",
+      result,
     });
   } catch (err) {
     res.status(404).json({
