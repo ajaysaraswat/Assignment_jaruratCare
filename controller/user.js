@@ -42,8 +42,24 @@ const handlelogout = (req, res) => {
   res.clearCookie("uid").send("Logout successfuly");
 };
 
+const getallApiEndpoints = (req, res) => {
+  return res.json({
+    Instructions:
+      "Please register and login first then run the web otherwise app is not running",
+    message: "this is the api endpoints for checking the web app",
+    "Register the user": "/register",
+    "login the user": "/login",
+    "create the resource": "/create",
+    "get all resources": "/all",
+    "get the resource by Id": "/byId/:id",
+    "update the resource": "/update/:id",
+    "Delete the resource": "/delete/:id",
+    logout: "/logout",
+  });
+};
 module.exports = {
   handleRegister,
   handlelogin,
   handlelogout,
+  getallApiEndpoints,
 };
