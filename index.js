@@ -7,7 +7,7 @@ const { restrictedtouserloginonly } = require("./middlewares/auth");
 const cookieParser = require("cookie-parser");
 const app = express();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 6000;
 const url = process.env.MONGO_URL;
 
 connecttoMongoDB(`${url}`);
